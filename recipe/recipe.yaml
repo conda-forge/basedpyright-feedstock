@@ -1,47 +1,51 @@
-{% set name = "basedpyright" %}
-{% set version = "1.28.1" %}
+schema_version: 1
 
+context:
+  name: basedpyright
+  version: 1.28.1
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/basedpyright-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/basedpyright-${{ version }}.tar.gz
   sha256: a5456348c3d7d89116e408dc79c7cfcb3ec1020e6cfd6fe38f2df49350d8cc03
 
 build:
-  entry_points:
-    - basedpyright = basedpyright.pyright:main
-    - basedpyright-langserver = basedpyright.langserver:main
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - basedpyright = basedpyright.pyright:main
+      - basedpyright-langserver = basedpyright.langserver:main
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}
     - pdm-backend >=2.3.0
     - nodejs-wheel >=20.13.1
     - typing_extensions >=4.12.2
     - docify >=1.0.0
     - pip
   run:
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - nodejs-wheel >=20.13.1
 
-test:
-  imports:
-    - basedpyright
-  commands:
-    - pip check
-    - basedpyright --help
-  requires:
-    - python {{ python_min }}
-    - pip
+tests:
+  - python:
+      imports:
+        - basedpyright
+  - requirements:
+      run:
+        - python ${{ python_min }}
+        - pip
+    script:
+      - pip check
+      - basedpyright --help
 
 about:
-  home: https://github.com/DetachHead/basedpyright
   summary: static type checking for Python (but based)
   license: MIT AND Apache-2.0
   license_file:
@@ -52,6 +56,7 @@ about:
     - packages/pyright/dist/typeshed-fallback/LICENSE
     - packages/pyright-internal/node_modules/@types/lodash/LICENSE
     - packages/pyright-internal/typeshed-fallback/LICENSE
+  homepage: https://github.com/DetachHead/basedpyright
 
 extra:
   recipe-maintainers:
