@@ -1,5 +1,5 @@
 {% set name = "basedpyright" %}
-{% set version = "1.25.0" %}
+{% set version = "1.26.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/basedpyright-{{ version }}.tar.gz
-  sha256: 8d0c25ae285600684fb7a8015be688970259c318904fa1cd2b59ee5a63575e74
+  sha256: 5e01f6eb9290a09ef39672106cf1a02924fdc8970e521838bc502ccf0676f32f
 
 build:
   entry_points:
