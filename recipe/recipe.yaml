@@ -23,7 +23,7 @@ build:
 
 requirements:
   host:
-    - python ${{ python_min }}
+    - python ${{ python_min }}.*
     - pdm-backend >=2.3.0
     - nodejs-wheel >=20.13.1
     - typing_extensions >=4.12.2
@@ -39,7 +39,7 @@ tests:
         - basedpyright
   - requirements:
       run:
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
         - pip
     script:
       - pip check
