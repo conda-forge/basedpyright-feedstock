@@ -13,7 +13,7 @@ source:
   sha256: 20c9a24e2a4c95d5b6d46c78a6b6c7e3dc7cbba227125256431d47c595b15fd4
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
@@ -25,12 +25,14 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pdm-backend >=2.3.0
+    - nodejs >=20
     - nodejs-wheel >=20.13.1
     - typing_extensions >=4.12.2
     - docify >=1.0.0
     - pip
   run:
     - python >=${{ python_min }}
+    - nodejs >=20
     - nodejs-wheel >=20.13.1
 
 tests:
