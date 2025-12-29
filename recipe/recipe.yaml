@@ -32,6 +32,7 @@ requirements:
     - pip
   run:
     - python >=${{ python_min }}
+    - nodejs >=20
     - nodejs-wheel >=20.13.1
 
 tests:
