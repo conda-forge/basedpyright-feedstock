@@ -25,7 +25,8 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pdm-backend >=2.3.0
-    - nodejs-wheel >=20.13.1,<24
+    - nodejs >=20
+    - nodejs-wheel >=20.13.1
     - typing_extensions >=4.12.2
     - docify >=1.0.0
     - pip
