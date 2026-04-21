@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: basedpyright
-  version: "1.39.2"
+  version: "1.39.3"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/basedpyright-${{ version }}.tar.gz
-  sha256: f74ac90d8de7edb6a60cfa26d06243363fedd3779463e56ea27011e2988a8035
+  sha256: 2f794e6b5f4260fb89f614ca6cd23c6f305373bb6b50c4ed7794ff2ae647fb14
 
 build:
   number: 0
