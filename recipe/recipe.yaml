@@ -11,6 +11,8 @@ package:
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/basedpyright-${{ version }}.tar.gz
   sha256: c8eaf5302f3265e275c7df4fba194d7afa7c1cb53fbfd448e90098360aca2c2e
+  patches:
+    - patches/use-system-pnpm.patch
 
 build:
   number: 0
@@ -27,6 +29,7 @@ requirements:
     - pdm-backend >=2.3.0
     - nodejs >=20
     - nodejs-wheel >=20.13.1
+    - pnpm >=11.20
     - typing_extensions >=4.12.2
     - docify >=1.0.0
     - pip
