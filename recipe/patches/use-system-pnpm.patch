@@ -1,0 +1,20 @@
+diff --git a/pdm_build.py b/pdm_build.py
+index 47daf2e..cec0e08 100644
+--- a/pdm_build.py
++++ b/pdm_build.py
+@@ -40,12 +40,10 @@ class Hook(BuildHookInterface):  # pyright:ignore[reportImplicitAbstractClass]
+             generate_docstubs(overwrite=True)
+ 
+         command = "pnpm run build:cli:dev"
+-        # subprocess.run always uses cmd which doesn't work with ./
+-        gg_executable = "gg.cmd" if sys.platform == "win32" else "./gg.cmd"
+         try:
+-            # need shell because gg.cmd doesn't work otherwise for some reason...
+-            _ = run(  # ruff: ignore[subprocess-popen-with-shell-equals-true]
+-                f"{gg_executable} {command}", capture_output=True, check=True, text=True, shell=True
++            # use the pnpm already available on PATH instead of gg.cmd's self-fetched binary
++            _ = run(
++                command, capture_output=True, check=True, text=True, shell=True
+             )
+         except CalledProcessError as e:
+             # whats the point of capture_output if `CalledProcessError` doesn't include the stderr
