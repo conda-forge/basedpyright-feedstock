@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: basedpyright
-  version: "1.39.10"
+  version: "1.40.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/basedpyright-${{ version }}.tar.gz
-  sha256: c8eaf5302f3265e275c7df4fba194d7afa7c1cb53fbfd448e90098360aca2c2e
+  sha256: baeccd5831b3aeef6e87a3b70f1f1dd7a50175621c74f01f7fdff2c5cb2aeaf6
   patches:
     - patches/use-system-pnpm.patch
 
