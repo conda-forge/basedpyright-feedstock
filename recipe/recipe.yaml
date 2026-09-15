@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: basedpyright
-  version: "1.40.0"
+  version: "1.40.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/basedpyright-${{ version }}.tar.gz
-  sha256: baeccd5831b3aeef6e87a3b70f1f1dd7a50175621c74f01f7fdff2c5cb2aeaf6
+  sha256: da1c9913b6d169340a0dbb6df76ea97f476ccb697da8f92659ac46032f6d2ce8
   patches:
     - patches/use-system-pnpm.patch
 
@@ -29,7 +29,7 @@ requirements:
     - pdm-backend >=2.3.0
     - nodejs >=20
     - nodejs-wheel >=20.13.1
-    - pnpm >=11.20
+    - pnpm >=11.21
     - typing_extensions >=4.12.2
     - docify >=1.0.0
     - pip
