@@ -29,7 +29,7 @@ requirements:
     - pdm-backend >=2.3.0
     - nodejs >=20
     - nodejs-wheel >=20.13.1
-    - pnpm >=11.20
+    - pnpm >=11.21
     - typing_extensions >=4.12.2
     - docify >=1.0.0
     - pip

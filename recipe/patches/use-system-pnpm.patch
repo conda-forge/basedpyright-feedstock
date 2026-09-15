@@ -4,8 +4,10 @@ index 47daf2e..cec0e08 100644
 +++ b/pdm_build.py
 @@ -40,12 +40,10 @@ class Hook(BuildHookInterface):  # pyright:ignore[reportImplicitAbstractClass]
              generate_docstubs(overwrite=True)
- 
-         command = "pnpm run build:cli:dev"
+
+-        command = "pnpm run build:cli:dev"
++        # prevent pnpm from switching to an incompatible pnpm binary
++        command = "PNPM_CONFIG_MANAGE_PACKAGE_MANAGER_VERSIONS=false pnpm run build:cli:dev"
 -        # subprocess.run always uses cmd which doesn't work with ./
 -        gg_executable = "gg.cmd" if sys.platform == "win32" else "./gg.cmd"
          try:
